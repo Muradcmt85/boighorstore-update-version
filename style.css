@@ -1,0 +1,24 @@
+/*
+Theme Name: Boighor Store WPCAMEL
+Theme URI: https://wpcmel.comhttps://wpcmel.com
+Author: Murad Hossain
+Author URI: https://wpcmel.com
+Description: This is test perpose development theme
+Version: 1.0
+Tags: ecommerce store boighor wpcamel
+
+ */
+
+.header__absolute {
+    top: 25px !important;
+}
+
+i.zmdi.zmdi-search {
+    font-size: 40px;
+}
+
+button#searchsubmit {
+    background: transparent;
+    color: #fff;
+    border: unset;
+}
