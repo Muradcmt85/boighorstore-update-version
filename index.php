@@ -1,6 +1,5 @@
 <?php get_header()?>
 
-djdg
 		<!-- Start Recent Post Area -->
 		<section class="wn__recent__post bg--gray ptb--80">
 			<div class="container">
