@@ -36,11 +36,12 @@
                     endif;
                 ?>
         				<ul class="wn__pagination">
-        					<li class="active"><a href="#">1</a></li>
+						<?php paginate_links(); ?>
+        					<!-- <li class="active"><a href="#">1</a></li>
         					<li><a href="#">2</a></li>
         					<li><a href="#">3</a></li>
         					<li><a href="#">4</a></li>
-        					<li><a href="#"><i class="zmdi zmdi-chevron-right"></i></a></li>
+        					<li><a href="#"><i class="zmdi zmdi-chevron-right"></i></a></li> -->
         				</ul>
         			</div>	
         			<div class="col-lg-3 col-12 md-mt-40 sm-mt-40">
