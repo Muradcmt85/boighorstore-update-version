@@ -31,9 +31,13 @@ get_header();
 
                             </div>
                             <ul class="blog_meta">
-                                <li><a href="<?php echo get_the_permalink()?>">c</a></li>
+                                <li><a href="<?php echo get_the_permalink()?>"><?php echo get_comments_number();?> Comments</a></li>
                                 <li> / </li>
-                                <li>Tags:<span>fashion</span> <span>t-shirt</span> <span>white</span></li>
+                                <?php
+			  foreach(get_the_category( ) as $category):
+			  $catname = $category->cat_name;?>
+                                <li>Tags: <span><?php echo $catname.' ';?></span></li>
+                                <?php endforeach; ?>
                             </ul>
                         </div>
                     </article>       <?php endwhile; 
@@ -44,37 +48,14 @@ get_header();
                     <div class="comments_area">
                         <h3 class="comment__title"><?php echo get_comments_number();?> Comment</h3>
                         <ul class="comment__list">
-                        <?php	if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;?>
-                            <!-- <li>
-                                <div class="wn__comment">
-                                    <div class="thumb">
-
-                                        <?php
-                                        $user = wp_get_current_user();
-                                        
-                                        if ( $user ) :
-                                            ?>
-                                            <img src="<?php echo esc_url( get_avatar_url( $user->ID ) ); ?>" />
-                                        <?php endif; ?>
-                                    </div>
-                                    <div class="content">
-                                        <div class="comnt__author d-block d-sm-flex">
-                                            <span><a href="#"><?php the_author()?></a> Post author</span>
-                                            <span><?php echo get_the_date()?></span>
-                                            <div class="reply__btn">
-                                                <a href="#">Reply</a>
-                                            </div>
-                                        </div>
-                                        <p</p>
-                                    </div>
-                                </div>
-                            </li> -->
+                                <?php	if ( comments_open() || get_comments_number() ) :
+                            comments_template();
+                        endif;?>
+                                
                         </ul>
                     </div>
                     <div class="comment_respond">
-                        <h3 class="reply_title">Leave a Reply <small><a href="#">Cancel reply</a></small></h3>
+                        <!-- <h3 class="reply_title">Leave a Reply <small><a href="#">Cancel reply</a></small></h3> -->
                         
                         <!-- <form class="comment__form" action="#">
                             <p>Your email address will not be published.Required fields are marked </p>
