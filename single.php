@@ -44,7 +44,10 @@ get_header();
                     <div class="comments_area">
                         <h3 class="comment__title"><?php echo get_comments_number();?> Comment</h3>
                         <ul class="comment__list">
-                            <li>
+                        <?php	if ( comments_open() || get_comments_number() ) :
+					comments_template();
+				endif;?>
+                            <!-- <li>
                                 <div class="wn__comment">
                                     <div class="thumb">
 
@@ -61,42 +64,18 @@ get_header();
                                             <span><a href="#"><?php the_author()?></a> Post author</span>
                                             <span><?php echo get_the_date()?></span>
                                             <div class="reply__btn">
-                                                <!-- <a href="#">Reply</a> -->
+                                                <a href="#">Reply</a>
                                             </div>
                                         </div>
-                                        <p>
-                                        <?php
-			$comments_number = get_comments_number();
-			if ( '1' === $comments_number ) {
-				/* translators: %s: Post title. */
-				printf( _x( 'One Reply to &ldquo;%s&rdquo;', 'comments title', 'twentyseventeen' ), get_the_title() );
-			} else {
-				printf(
-					/* translators: 1: Number of comments, 2: Post title. */
-					_nx(
-						'%1$s Reply to &ldquo;%2$s&rdquo;',
-						'%1$s Replies to &ldquo;%2$s&rdquo;',
-						$comments_number,
-						'comments title',
-						'twentyseventeen'
-					),
-					number_format_i18n( $comments_number ),
-					get_the_title()
-				);
-			}
-			?>
-
-                                        </p>
+                                        <p</p>
                                     </div>
                                 </div>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                     <div class="comment_respond">
                         <h3 class="reply_title">Leave a Reply <small><a href="#">Cancel reply</a></small></h3>
-                        <?php	if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;?>
+                        
                         <!-- <form class="comment__form" action="#">
                             <p>Your email address will not be published.Required fields are marked </p>
                             <div class="input__box">
