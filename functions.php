@@ -85,18 +85,18 @@ add_theme_support(
 // Custom post feature products
 
 
-register_post_type('feature_products', array(
+// register_post_type('feature_products', array(
 
-	'labels' => array(
-	'name' => 'Feature Product',
-	'add_new_item'=> 'Add feature products'
-	),
-	'public' => true,
-	'supports' => array('title', 'editor','thumbnail'),
-	'menu_position' =>10,
-	'rewrite'     => false,
-	'menu_icon' => 'dashicons-video-alt3'
-	));
+// 	'labels' => array(
+// 	'name' => 'Feature Product',
+// 	'add_new_item'=> 'Add feature products'
+// 	),
+// 	'public' => true,
+// 	'supports' => array('title', 'editor','thumbnail'),
+// 	'menu_position' =>10,
+// 	'rewrite'     => false,
+// 	'menu_icon' => 'dashicons-video-alt3'
+// 	));
 
 
 
@@ -107,7 +107,7 @@ function boighor_custom_allporducts() {
     $labels = array(
         'name'                  => _x( 'Boighor', 'boighor' ),
         'singular_name'         => _x( 'Boighor', 'boighor' ),
-        'menu_name'             => _x( 'Boighor', 'boighor' ),
+        'menu_name'             => _x( 'Boighor Products', 'boighor' ),
         'name_admin_bar'        => _x( 'Boighor', 'boighor' ),
         'add_new'               => __( 'Add New boighor', 'boighor' ),
         'add_new_item'          => __( 'Add New boighor', 'boighor' ),
@@ -183,3 +183,22 @@ function create_boighor_taxonomies() {
 }
 
 add_action( 'init', 'create_boighor_taxonomies');
+
+
+
+// Dynamic sidebar are here
+
+
+add_action( 'widgets_init', 'blog_iteam_custom_widget' );
+function blog_iteam_custom_widget() {
+    register_sidebar( array(
+        'name' => __( 'Blog Iteam Custom Widget', 'theme-slug' ),
+        'id' => 'blog_item',
+        'description' => __( 'Widgets in this area will be shown on all posts and pages.', 'theme-slug' ),
+        'before_widget' => ' <div class="wn__sidebar widget ">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    ) );
+}
+
