@@ -61,27 +61,32 @@ get_header();
                                             <span><a href="#"><?php the_author()?></a> Post author</span>
                                             <span><?php echo get_the_date()?></span>
                                             <div class="reply__btn">
-                                                <a href="#">Reply</a>
+                                                <!-- <a href="#">Reply</a> -->
                                             </div>
                                         </div>
-                                        <p>Sed interdum at justo in efficitur. Vivamus gravida volutpat sodales. Fusce ornare sit</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="comment_reply">
-                                <div class="wn__comment">
-                                    <div class="thumb">
-                                        <img src="images/blog/comment/1.jpeg" alt="comment images">
-                                    </div>
-                                    <div class="content">
-                                        <div class="comnt__author d-block d-sm-flex">
-                                            <span><a href="#">admin</a> Post author</span>
-                                            <span>October 6, 2014 at 9:26 am</span>
-                                            <div class="reply__btn">
-                                                <a href="#">Reply</a>
-                                            </div>
-                                        </div>
-                                        <p>Sed interdum at justo in efficitur. Vivamus gravida volutpat sodales. Fusce ornare sit</p>
+                                        <p>
+                                        <?php
+			$comments_number = get_comments_number();
+			if ( '1' === $comments_number ) {
+				/* translators: %s: Post title. */
+				printf( _x( 'One Reply to &ldquo;%s&rdquo;', 'comments title', 'twentyseventeen' ), get_the_title() );
+			} else {
+				printf(
+					/* translators: 1: Number of comments, 2: Post title. */
+					_nx(
+						'%1$s Reply to &ldquo;%2$s&rdquo;',
+						'%1$s Replies to &ldquo;%2$s&rdquo;',
+						$comments_number,
+						'comments title',
+						'twentyseventeen'
+					),
+					number_format_i18n( $comments_number ),
+					get_the_title()
+				);
+			}
+			?>
+
+                                        </p>
                                     </div>
                                 </div>
                             </li>
@@ -89,7 +94,9 @@ get_header();
                     </div>
                     <div class="comment_respond">
                         <h3 class="reply_title">Leave a Reply <small><a href="#">Cancel reply</a></small></h3>
-                        <?php echo get_the_comment();?>
+                        <?php	if ( comments_open() || get_comments_number() ) :
+					comments_template();
+				endif;?>
                         <!-- <form class="comment__form" action="#">
                             <p>Your email address will not be published.Required fields are marked </p>
                             <div class="input__box">

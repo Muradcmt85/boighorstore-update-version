@@ -29,8 +29,31 @@ if ( post_password_required() ) {
 	// You can start editing here -- including this comment!
 	if ( have_comments() ) :
 		?>
-		<h2 class="comments-title">
-			<?php
+
+<div class="comments_area">
+                        <h3 class="comment__title"><?php echo get_comments_number();?> Comment</h3>
+                        <ul class="comment__list">
+                            <li>
+                                <div class="wn__comment">
+                                    <div class="thumb">
+
+                                        <?php
+                                        $user = wp_get_current_user();
+                                        
+                                        if ( $user ) :
+                                            ?>
+                                            <img src="<?php echo esc_url( get_avatar_url( $user->ID ) ); ?>" />
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="content">
+                                        <div class="comnt__author d-block d-sm-flex">
+                                            <span><a href="#"><?php the_author()?></a> Post author</span>
+                                            <span><?php echo get_the_date()?></span>
+                                            <div class="reply__btn">
+                                                <a href="#">Reply</a>
+                                            </div>
+                                        </div>
+                                        <p>	<?php
 			$comments_number = get_comments_number();
 			if ( '1' === $comments_number ) {
 				/* translators: %s: Post title. */
@@ -49,8 +72,30 @@ if ( post_password_required() ) {
 					get_the_title()
 				);
 			}
-			?>
-		</h2>
+			?></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="comment_reply">
+                                <div class="wn__comment">
+                                    <div class="thumb">
+                                        <img src="images/blog/comment/1.jpeg" alt="comment images">
+                                    </div>
+                                    <div class="content">
+                                        <div class="comnt__author d-block d-sm-flex">
+                                            <span><a href="#">admin</a> Post author</span>
+                                            <span>October 6, 2014 at 9:26 am</span>
+                                            <div class="reply__btn">
+                                                <a href="#">Reply</a>
+                                            </div>
+                                        </div>
+                                        <p>Sed interdum at justo in efficitur. Vivamus gravida volutpat sodales. Fusce ornare sit</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+	
 
 		<ol class="comment-list">
 			<?php
