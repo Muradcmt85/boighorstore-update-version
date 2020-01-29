@@ -3,7 +3,21 @@
 // Template Name: Custom page Template
 get_header();
 ?>
-
+<div class="ht__bradcaump__area bg-image--6" style="background-image: url(<?php echo get_template_directory_uri()?>/images/bg/6.jpg);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="bradcaump__inner text-center">
+                        	<h2 class="bradcaump-title">Blog Details</h2>
+                            <nav class="bradcaump-content">
+                            <?php the_breadcrumb(); ?>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
 <div class="page-blog-details section-padding--lg bg--white">
     <div class="container">
         <div class="row">
