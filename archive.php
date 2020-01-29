@@ -1,18 +1,17 @@
 <?php get_header()?>
 <div class="ht__bradcaump__area bg-image--6" style="background-image: url(<?php echo get_template_directory_uri()?>/images/bg/6.jpg);">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="bradcaump__inner text-center">
-                        	<h2 class="bradcaump-title">Archive Page</h2>
-                            <nav class="bradcaump-content">
-                            <?php the_breadcrumb(); ?>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="bradcaump__inner text-center">
+					<h2 class="bradcaump-title">Archive Page</h2>
+					<nav class="bradcaump-content">
+					<?php the_breadcrumb(); ?>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
         <!-- Start Blog Area -->
         <div class="page-blog bg--white section-padding--lg blog-sidebar right-sidebar">

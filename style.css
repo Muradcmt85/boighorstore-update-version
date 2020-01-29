@@ -22,3 +22,32 @@ button#searchsubmit {
     color: #fff;
     border: unset;
 }
+
+.single-contact-form label {
+    display: block !important;
+}
+
+.contact-btn button input {
+    background: transparent;
+    border: transparent;
+    font-size: 12px;
+    outline: 0;
+}
+
+
+.contact-btn button{
+
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 2px solid #333;
+    box-shadow: none;
+    color: #333;
+    display: inline-block;
+    font-family: Poppins,Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 34px;
+    padding: 2px 20px 0;
+    text-shadow: none;
+    text-transform: uppercase;
+    transition: all 0.4s ease 0s;
+}
