@@ -263,3 +263,90 @@ function the_breadcrumb() {
         echo '</div>';
     }
 }
+
+
+
+// Portfolio custom posts
+
+	
+
+function boighor_custom_portfolio() {
+    $labels = array(
+        'name'                  => _x( 'Portfolio', 'boighor' ),
+        'singular_name'         => _x( 'Portfolio', 'boighor' ),
+        'menu_name'             => _x( 'Portfolio Item', 'boighor' ),
+        'name_admin_bar'        => _x( 'Portfolio', 'boighor' ),
+        'add_new'               => __( 'Add New Portfolio', 'boighor' ),
+        'add_new_item'          => __( 'Add New Portfolio', 'boighor' ),
+        'new_item'              => __( 'New Portfolio', 'boighor' ),
+        'edit_item'             => __( 'Edit Portfolio', 'boighor' ),
+        'view_item'             => __( 'View Portfolio', 'boighor' ),
+        'all_items'             => __( 'All Portfolio', 'boighor' ),
+        'search_items'          => __( 'Search Portfolio', 'boighor' ),
+        'parent_item_colon'     => __( 'Parent Portfolio:', 'boighor' ),
+        'not_found'             => __( 'No Portfolio found.', 'boighor' ),
+        'not_found_in_trash'    => __( 'No Portfolio found in Trash.', 'boighor' ),
+        'featured_image'        => _x( 'Portfolio Cover Image',  'boighor' ),
+        'set_featured_image'    => _x( 'Set Portfolio image', 'boighor' ),
+        'remove_featured_image' => _x( 'Remove Portfolio image', 'boighor' ),
+        'use_featured_image'    => _x( 'Use as Portfolio image', 'boighor' ),
+        'archives'              => _x( 'Portfolio archives', 'boighor' ),
+        'insert_into_item'      => _x( 'Insert into Portfolio', 'boighor' ),
+        'uploaded_to_this_item' => _x( 'Uploaded to this Portfolio', 'boighor' ),
+        'filter_items_list'     => _x( 'Filter Portfolio list', 'boighor' ),
+        'items_list_navigation' => _x( 'Portfolio list navigation', 'boighor' ),
+        'items_list'            => _x( 'Portfolio list', 'boighor' ),
+    );
+ 
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true, 
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'portfolio' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 5,
+		'supports'           => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' ),
+		//'taxonomies'         => array('category', 'post_tag'),
+		'exclude_from_search'=> false
+    );
+ 
+    register_post_type( 'portfolio', $args );
+}
+ 
+add_action( 'init', 'boighor_custom_portfolio' );
+
+
+function create_portfolio_taxonomies() {
+
+	$labels = array(
+		'name'              => _x( 'Portfolio Categories', 'boighor' ),
+		'singular_name'     => _x( 'Portfolio Category', 'boighor' ),
+		'search_items'      => __( 'Search Portfolio Category', 'boighor' ),
+		'all_items'         => __( 'All Portfolio Category', 'boighor' ),
+		'parent_item'       => __( 'Parent Portfolio Category', 'boighor' ),
+		'parent_item_colon' => __( 'Parent Portfolio Category:', 'boighor' ),
+		'edit_item'         => __( 'Edit Portfolio Category', 'boighor' ),
+		'update_item'       => __( 'Update Portfolio Category', 'boighor' ),
+		'add_new_item'      => __( 'Add New Portfolio Category', 'boighor' ),
+		'new_item_name'     => __( 'New Portfolio Category Name', 'boighor' ),
+		'menu_name'         => __( 'Portfolio Category', 'boighor' ),
+	);
+
+	$args = array(
+		'hierarchical'      => true,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array( 'slug' => 'portfolio_category' ),
+	);
+
+	register_taxonomy( 'portfolio_category', array( 'portfolio' ), $args );
+}
+
+add_action( 'init', 'create_portfolio_taxonomies');
