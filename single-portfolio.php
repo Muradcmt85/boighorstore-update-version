@@ -2,7 +2,7 @@
 
 
         <!-- Start Bradcaump area -->
-        <div class="ht__bradcaump__area bg-image--6" style="background-image: url(<?php echo $settings['boighor_about_banner_image']['url']?>);  background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        <div class="ht__bradcaump__area bg-image--6" style="background-image: url(<?php echo get_template_directory_uri().'/images/bg/6.jpg'; ?>);  background-repeat: no-repeat; background-size: cover; background-position: center center;">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
