@@ -48,17 +48,18 @@ get_header();
                                 <li><a href="<?php echo get_the_permalink()?>"><?php echo get_comments_number();?> Comments</a></li>
                                 <li> / </li>
                                 <?php
-			  foreach(get_the_category( ) as $category):
-			  $catname = $category->cat_name;?>
+                                    foreach(get_the_category( ) as $category):
+                                    $catname = $category->cat_name;?>
                                 <li>Tags: <span><?php echo $catname.' ';?></span></li>
                                 <?php endforeach; ?>
                             </ul>
                         </div>
-                    </article>       <?php endwhile; 
-                    the_posts_pagination();
-                 else : ?>
-                    <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
-                <?php endif; ?>
+                    </article>       
+                    <?php endwhile; 
+                        the_posts_pagination();
+                    else : ?>
+                        <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+                    <?php endif; ?>
                     <div class="comments_area">
                         <h3 class="comment__title"><?php echo get_comments_number();?> Comment</h3>
                         <ul class="comment__list">
