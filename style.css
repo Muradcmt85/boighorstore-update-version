@@ -9,6 +9,12 @@ Tags: ecommerce store boighor wpcamel
 
  */
 
+ button.login-btn input {
+    background: transparent;
+    border: transparent;
+    font-size: 15px;
+}
+
 
 footer#wn__footer {
     margin-top: 250px !important;

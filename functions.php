@@ -122,6 +122,24 @@ function blog_iteam_custom_widget() {
 }
 
 
+
+
+
+add_action( 'widgets_init', 'product_iteam_custom_widget' );
+function product_iteam_custom_widget() {
+    register_sidebar( array(
+        'name' => __( 'Products Iteam Custom Widget', 'theme-slug' ),
+        'id' => 'product_item',
+        'description' => __( 'Widgets in this area will be shown on all posts and pages.', 'theme-slug' ),
+        'before_widget' => ' <div class="wedget__categories">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="wedget__title">',
+        'after_title'   => '</h3>',
+    ) );
+}
+
+
+
 /*=============================================
 =            BREADCRUMBS			            =
 =============================================*/
