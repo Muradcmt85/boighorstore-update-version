@@ -1,6 +1,5 @@
 <?php
 
-// Template Name: Custom page Template
 get_header();
 ?>
 <div class="ht__bradcaump__area bg-image--6" style="background-image: url(<?php echo get_template_directory_uri()?>/images/bg/6.jpg);">
