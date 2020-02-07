@@ -62,3 +62,11 @@ button#searchsubmit {
     text-transform: uppercase;
     transition: all 0.4s ease 0s;
 }
+
+
+
+/* woocommerce style here */
+
+.product.product__style--3 li {
+    list-style-type: none;
+}

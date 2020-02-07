@@ -287,3 +287,15 @@ function create_portfolio_taxonomies() {
 }
 
 add_action( 'init', 'create_portfolio_taxonomies');
+
+
+
+// woocommerce support
+
+function mytheme_add_woocommerce_support() {
+	add_theme_support( 'woocommerce' );
+}
+add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
+
+
+remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0);
