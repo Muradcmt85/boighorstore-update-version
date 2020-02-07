@@ -299,3 +299,4 @@ add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
 
 
 remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0);
+remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart' );
