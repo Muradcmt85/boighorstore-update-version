@@ -70,3 +70,57 @@ button#searchsubmit {
 .product.product__style--3 li {
     list-style-type: none;
 }
+
+
+
+.product__info__detailed .description__attribute ul li {
+    border: 0 none;
+    color: #777;
+    font-size: 14px;
+    font-weight: 700;
+    height: 46px;
+    line-height: 46px;
+    position: relative;
+    text-transform: uppercase;
+    padding: 0;
+    display: inline-block;
+}
+
+.product__info__detailed .description__attribute ul li::after {
+    background: #2e2e2e none repeat scroll 0 0;
+    bottom: -2px;
+    content: "";
+    height: 2px;
+    left: 0;
+    position: absolute;
+    transition: all 0.3s ease-in-out 0s;
+    width: 0;
+}
+
+li#tab-title-reviews {
+    padding-left: 45px;
+}
+
+.related h2 {
+    display: none;
+}
+
+.product.product__style--3 li {
+    margin-bottom: 50px;
+}
+
+form.cart button {
+    background: #e59285 none repeat scroll 0 0;
+    border: 0 none;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 25px;
+    text-transform: uppercase;
+}
+
+.quantity {
+    float: left;
+}
