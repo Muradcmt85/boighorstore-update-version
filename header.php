@@ -64,7 +64,7 @@
 											<span>$66.00</span>
 										</div>
 										<div class="mini_action checkout">
-											<a class="checkout__btn" href="cart.html">Go to Checkout</a>
+											<a class="checkout__btn" href="http://localhost/wordpress/cart/">Go to Checkout</a>
 										</div>
 										<div class="single__items">
 											<div class="miniproduct">

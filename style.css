@@ -124,3 +124,47 @@ form.cart button {
 .quantity {
     float: left;
 }
+
+.table-content table td input {
+    width: 70px !important;
+    text-align: center !important;
+}
+
+ul.cart__btn__list.d-flex.flex-wrap.flex-md-nowrap.flex-lg-nowrap.justify-content-between button, .wc-proceed-to-checkout {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 5px;
+    display: block;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    height: 50px;
+    cursor: pointer;
+    line-height: 50px;
+    padding: 0 26px;
+    border: none;
+    text-transform: capitalize;
+    transition: all 0.3s ease 0s;
+}
+
+
+ul.cart__btn__list.d-flex.flex-wrap.flex-md-nowrap.flex-lg-nowrap.justify-content-between button:hover{
+    background: #e59285 none repeat scroll 0 0;
+    color: #fff;
+}
+
+.wc-proceed-to-checkout:hover {
+    background: #e59285 none repeat scroll 0 0;
+    color: #fff !important;
+}
+.wc-proceed-to-checkout:hover a {
+    color: #fff !important;
+}
+
+.cartbox-total.d-flex.justify-content-between {
+    padding: 45px;
+}
+
+.woocommerce-notices-wrapper {
+    top: 100px;
+    position: relative;
+}

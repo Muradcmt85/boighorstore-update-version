@@ -83,10 +83,13 @@ if ( post_password_required() ) {
 											</div>
         								</div>
 										<div class="product_meta">
+										<?php
+                                    foreach(get_the_category( ) as $category):
+										$catname = $category->cat_name;?>
 											<span class="posted_in">Categories: 
-												<a href="#">Adventure</a>, 
-												<a href="#">Kids' Music</a>
+												<a href="<?php echo get_the_permalink()?>"><?php echo $catname.' ';?></a>, 
 											</span>
+											<?php endforeach; ?>
 										</div>
 										<div class="product-share">
 											<ul>
