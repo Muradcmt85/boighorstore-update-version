@@ -168,3 +168,15 @@ ul.cart__btn__list.d-flex.flex-wrap.flex-md-nowrap.flex-lg-nowrap.justify-conten
     top: 100px;
     position: relative;
 }
+
+.dropdown-menu {
+    background-color: #191919;
+}
+
+
+/* products category tab */
+
+.product__nav a:first-child {
+    border-left: 0 none;
+    margin-bottom: 25px;
+}

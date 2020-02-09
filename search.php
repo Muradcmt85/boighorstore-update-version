@@ -4,9 +4,10 @@
 get_header();
 ?>
 
-	<section id="primary" class="content-area">
-		<main id="main" class="site-main">
-
+<div class="page-blog bg--white section-padding--lg blog-sidebar right-sidebar">
+        	<div class="container">
+        		<div class="row">
+		<div class="col-lg-9 col-12">
 		<?php if ( have_posts() ) : ?>
 
 				<h1>
@@ -30,15 +31,16 @@ get_header();
 
 			the_posts_navigation();
 
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
+			else :?>
+				<div class="container">
+		<?php	get_template_part( ' ', 'none' );
 
 		endif;
 		?>
-
-		</main><!-- #main -->
-	</section><!-- #primary -->
+	</div>
+</div>
+</div>
+</div>
 
 <?php
 get_sidebar();
