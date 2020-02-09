@@ -57,11 +57,11 @@
 											<span>close</span>
 										</div>
 										<div class="items-total d-flex justify-content-between">
-											<span>3 items</span>
+											<span><?php echo WC()->cart->get_cart_contents_count(); ?> items</span>
 											<span>Cart Subtotal</span>
 										</div>
 										<div class="total_amount text-right">
-											<span>$66.00</span>
+											<span><?php wc_cart_totals_order_total_html(); ?></span>
 										</div>
 										<div class="mini_action checkout">
 											<a class="checkout__btn" href="http://localhost/wordpress/cart/">Go to Checkout</a>
@@ -74,7 +74,7 @@
 													</div>
 													<div class="content">
 														<h6><a href="product-details.html">Voyage Yoga Bag</a></h6>
-														<span class="prize">$30.00</span>
+														<span class="prize"><?php echo wc_price( $price ); ?></span>
 														<div class="product_prize d-flex justify-content-between">
 															<span class="qun">Qty: 01</span>
 															<ul class="d-flex justify-content-end">
@@ -87,7 +87,7 @@
 											</div>
 										</div>
 										<div class="mini_action cart">
-											<a class="cart__btn" href="cart.html">View and edit cart</a>
+											<a class="cart__btn" href="http://localhost/wordpress/cart/">View and edit cart</a>
 										</div>
 									</div>
 								</div>
