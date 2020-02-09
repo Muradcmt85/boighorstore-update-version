@@ -302,7 +302,10 @@ remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0
 remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart' );
 
 // custom single page
-
-add_theme_support( 'wc-product-gallery-zoom' );
-add_theme_support( 'wc-product-gallery-lightbox' );
-add_theme_support( 'wc-product-gallery-slider' );
+add_action( 'after_setup_theme', 'boighor_product_gallary' );
+ 
+function boighor_product_gallary() {
+    add_theme_support( 'wc-product-gallery-zoom' );
+    add_theme_support( 'wc-product-gallery-lightbox' );
+    add_theme_support( 'wc-product-gallery-slider' );
+}
