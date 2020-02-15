@@ -335,8 +335,8 @@
                     '5' => 'Linkedin',
                      ),
                      
-                'default'  => 'Social icons'
                 ),
+                
 
                 // Footer copyright text
             array(

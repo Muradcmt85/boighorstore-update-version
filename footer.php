@@ -12,12 +12,13 @@
 									<p><?php echo $wpcamel['footer_text']?></p>
 								</div>
 								<div class="footer__content">
+							
 									<ul class="social__net social__net--2 d-flex justify-content-center">
-										<li><?php echo $wpcamel['social_icons']['1'];?></li>
-										<li><?php echo $wpcamel['social_icons']['2'];?></li>
-										<li><?php echo $wpcamel['social_icons']['3'];?></li>
-										<li><?php echo $wpcamel['social_icons']['4'];?></li>
-										<li><?php echo $wpcamel['social_icons']['5'];?></li>
+										<li><a href="<?php echo $wpcamel['social_icons']['1'];?>"><i class="bi bi-facebook"></i></a></li>
+										<li><a href="<?php echo $wpcamel['social_icons']['2'];?>"><i class="bi bi-google"></i></a></li>
+										<li><a href="<?php echo $wpcamel['social_icons']['3'];?>"><i class="bi bi-twitter"></i></a></li>
+										<li><a href="<?php echo $wpcamel['social_icons']['4'];?>"><i class="bi bi-linkedin"></i></a></li>
+										<li><a href="<?php echo $wpcamel['social_icons']['5'];?>"><i class="bi bi-youtube"></i></a></li>
 									</ul>
 									<?php
 										wp_nav_menu( array(
