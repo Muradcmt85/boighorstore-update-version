@@ -10,7 +10,7 @@
     }
 
     // This is your option name where all the Redux data is stored.
-    $opt_name = "redux_demo";
+    $opt_name = "wpcamel";
 
     /**
      * ---> SET ARGUMENTS
@@ -32,8 +32,8 @@
         //Specify if the admin menu should appear or not. Options: menu or submenu (Under appearance only)
         'allow_sub_menu'       => true,
         // Show the sections below the admin menu item or not
-        'menu_title'           => __( 'Sample Options', 'redux-framework-demo' ),
-        'page_title'           => __( 'Sample Options', 'redux-framework-demo' ),
+        'menu_title'           => __( 'Theme Options', 'wpcamel' ),
+        'page_title'           => __( 'Theme Options', 'wpcamel' ),
         // You will need to generate a Google API key to use this feature.
         // Please visit: https://developers.google.com/fonts/docs/developer_api#Auth
         'google_api_key'       => '',
@@ -51,11 +51,11 @@
         // Choose an priority for the admin bar menu
         'global_variable'      => '',
         // Set a different name for your global variable other than the opt_name
-        'dev_mode'             => true,
+        'dev_mode'             => false,
         // Show the time the page took to load, etc
         'update_notice'        => true,
         // If dev_mode is enabled, will notify developer of updated versions available in the GitHub Repo
-        'customizer'           => true,
+        'customizer'           => false,
         // Enable basic customizer support
         //'open_expanded'     => true,                    // Allow you to start the panel in an expanded way initially.
         //'disable_save_warn' => true,                    // Disable the save warning when a user changes a field
@@ -238,64 +238,136 @@
 
     // -> START Basic Fields
     Redux::setSection( $opt_name, array(
-        'title'  => __( 'Basic Field', 'redux-framework-demo' ),
-        'id'     => 'basic',
-        'desc'   => __( 'Basic field with no subsections.', 'redux-framework-demo' ),
-        'icon'   => 'el el-home',
-        'fields' => array(
-            array(
-                'id'       => 'opt-text',
-                'type'     => 'text',
-                'title'    => __( 'Example Text', 'redux-framework-demo' ),
-                'desc'     => __( 'Example description.', 'redux-framework-demo' ),
-                'subtitle' => __( 'Example subtitle.', 'redux-framework-demo' ),
-                'hint'     => array(
-                    'content' => 'This is a <b>hint</b> tool-tip for the text field.<br/><br/>Add any HTML based text you like here.',
-                )
-            )
-        )
-    ) );
-
-    Redux::setSection( $opt_name, array(
-        'title' => __( 'Basic Fields', 'redux-framework-demo' ),
-        'id'    => 'basic',
-        'desc'  => __( 'Basic fields as subsections.', 'redux-framework-demo' ),
+        'title' => __( 'Header Option', 'wpcamel' ),
+        'id'    => 'header',
+        'desc'  => __( 'Basic fields as subsections.', 'wpcamel' ),
         'icon'  => 'el el-home'
     ) );
 
+
     Redux::setSection( $opt_name, array(
-        'title'      => __( 'Text', 'redux-framework-demo' ),
-        'desc'       => __( 'For full documentation on this field, visit: ', 'redux-framework-demo' ) . '<a href="//docs.reduxframework.com/core/fields/text/" target="_blank">//docs.reduxframework.com/core/fields/text/</a>',
-        'id'         => 'opt-text-subsection',
+        'title'      => __( 'Main Header', 'wpcamel' ),
+        'desc'       => __( 'Please input here for main header section'),
+        'id'         => 'header_id',
         'subsection' => true,
-        'fields'     => array(
+        'fields'     => array(  
             array(
-                'id'       => 'text-example',
-                'type'     => 'text',
-                'title'    => __( 'Text Field', 'redux-framework-demo' ),
-                'subtitle' => __( 'Subtitle', 'redux-framework-demo' ),
-                'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                'default'  => 'Default Text',
+                'title' =>__('Main logo upload','Wpcamel'),
+                'subtitle' =>__('upload your logo','Wpcamel'),
+                'desc' =>__('logo upload for main menu','Wpcamel'),
+                'type' =>'media',
+                'id' => 'main_logo',
+                'compiler' =>true,
+                'default' => array(
+                'url' => get_template_directory_uri() .'/images/logo/logo.png'
+                )
             ),
+             
         )
+    ));
+
+
+
+
+
+    Redux::setSection( $opt_name, array(
+        'title'            => __( 'Footer Option', 'wpcamel' ),
+        'id'               => 'footer',
+        'desc'             => __( 'These are really basic fields!', 'wpcamel' ),
+        'customizer_width' => '400px',
+        'icon'             => 'el el-hand-down'
+        
     ) );
 
     Redux::setSection( $opt_name, array(
-        'title'      => __( 'Text Area', 'redux-framework-demo' ),
-        'desc'       => __( 'For full documentation on this field, visit: ', 'redux-framework-demo' ) . '<a href="//docs.reduxframework.com/core/fields/textarea/" target="_blank">//docs.reduxframework.com/core/fields/textarea/</a>',
-        'id'         => 'opt-textarea-subsection',
-        'subsection' => true,
-        'fields'     => array(
+        'title'            => __( 'Footer Option', 'wpcamel' ),
+        'id'               => 'footer-checkbox',
+        'subsection'       => true,
+        'customizer_width' => '450px',
+        'desc'             => __( 'For full documentation on this field, visit: ', 'wpcamel' ) . '',
+        'icons' => array(
+            array (
+                'id'         => 'paypal',
+                'icon'       => 'fa-paypal',
+                'enabled'    => false,
+                'name'       => __ ( 'PayPal', 'wpcamel' ),
+                'background' => '',
+                'color'      => '#1769ff',
+                'url'        => '',
+            )),
+        
+        'fields' => array(
             array(
-                'id'       => 'textarea-example',
-                'type'     => 'textarea',
-                'title'    => __( 'Text Area Field', 'redux-framework-demo' ),
-                'subtitle' => __( 'Subtitle', 'redux-framework-demo' ),
-                'desc'     => __( 'Field Description', 'redux-framework-demo' ),
-                'default'  => 'Default Text',
+                'title' =>__('Footer logo upload','Wpcamel'),
+                'subtitle' =>__('upload your logo','Wpcamel'),
+                'desc' =>__('logo upload for footer','Wpcamel'),
+                'type' =>'media',
+                'id' => 'footer_logo',
+                'compiler' =>true,
+                'default' => array(
+                'url' => get_template_directory_uri() .'../images/logo/logo.png'
+                )
             ),
-        )
+            
+            //footer paragraph text
+            array(
+                'title' =>__('Footer Text','Wpcamel'),
+                'subtitle' =>__('Footer paragraph text','Wpcamel'),
+                'desc' =>__('Please enter footer text','Wpcamel'),
+                'type' =>'textarea',
+                'id' => 'footer_text',
+                'default' =>'Please enter some text'
+            ),
+            
+     
+            //Social link
+    
+            array(
+                'id'       => 'social_icons',
+                'type'     => 'text',
+                'title'    => __('Social icons Input type text drop here', 'wpcamel'),
+                'desc'     => __('This is the header Social icons section', 'wpcamel'),
+                'options' => array(
+                    '1' => 'Facebook',
+                    '2' => 'Twitter',
+                    '3' => 'Youtube',
+                    '4' => 'Google Plus',
+                    '5' => 'Linkedin',
+                     ),
+                     
+                'default'  => 'Social icons'
+                ),
+
+                // Footer copyright text
+            array(
+                'title' =>__('Footer Text','Wpcamel'),
+                'subtitle' =>__('Footer paragraph text','Wpcamel'),
+                'desc' =>__('Please enter copyright text','Wpcamel'),
+                'type' =>'text',
+                'id' => 'copyright_text',
+                'default' =>'Copyright @ Boighor. All Rights Reserved'
+            ),
+            
+
+            // Footer payment method here
+            array(
+                'title' =>__('Footer Payment method image','Wpcamel'),
+                'subtitle' =>__('Payment method','Wpcamel'),
+                'desc' =>__('Please enter your payment method','Wpcamel'),
+                'type' =>'media',
+                'id' => 'payment_method',
+                'default' => array(
+                    'url' => get_template_directory_uri() .'../images/icons/payment.png'
+                    )
+            ),
+                
+            
+            
+            
+        ),
+        
     ) );
+
 
     /*
      * <--- END SECTIONS

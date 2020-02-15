@@ -25,7 +25,7 @@
 				<div class="row">
 					<div class="col-md-6 col-sm-6 col-6 col-lg-2">
 						<div class="logo">
-							<a href="<?php echo home_url('')?>"><?php the_custom_logo();?></a>
+							<a href="<?php echo home_url('')?>"><img src="<?php global $wpcamel; echo $wpcamel['main_logo']['url']?>"></a>
 						</div>
 					</div>
 					<div class="col-lg-8 d-none d-lg-block">
@@ -33,10 +33,7 @@
 								<?php
 										wp_nav_menu( array(
 										'theme_location'	=> 'primary',
-										'depth'             =>'9',
-										'container'			=> 'div',
-										'container_class'	=> 'container-fluid',
-										'container_id'		=> ' ',
+										'depth'             =>'3',
 										'menu_class'		=> 'meninmenu d-flex justify-content-start drop',
 										'fallback_cb'		=> 'WP_Bootstrap_Navwalker::fallback',
 										'walker'			=> new WP_Bootstrap_Navwalker(),
@@ -64,7 +61,8 @@
 											<span><?php wc_cart_totals_order_total_html(); ?></span>
 										</div>
 										<div class="mini_action checkout">
-											<a class="checkout__btn" href="http://localhost/wordpress/cart/">Go to Checkout</a>
+										<?php global $woocommerce; ?>
+											<a class="checkout__btn" href="<?php echo $woocommerce->cart->get_cart_url(); ?>">Go to Checkout</a>
 										</div>
 										<div class="single__items">
 											<div class="miniproduct">

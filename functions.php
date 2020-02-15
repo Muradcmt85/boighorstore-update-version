@@ -1,47 +1,81 @@
+
 <?php
+/**
+ * boighor functions and definitions
+ *
+ * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ *
+ * @package boighor
+ */
 
-//  Support thumbnail, logo, backgorund, title are here
+if ( ! function_exists( 'boighor_setup' ) ) :
 
-add_theme_support( 'post-thumbnails' );
-add_theme_support( 'custom-logo' );
-add_theme_support('custom-background');
-add_theme_support('custom-header');
-add_theme_support('title-tag');
+	function boighor_setup() {
+	
+		load_theme_textdomain( 'boighor', get_template_directory() . '/languages' );
 
-// All css and js file are here
+		add_theme_support( 'automatic-feed-links' );
 
-function boighor_scripts() {
+	
+		add_theme_support( 'title-tag' );
 
-	wp_enqueue_style( 'boighor_bootstrap_min', get_template_directory_uri() . '/css/bootstrap.min.css');
-	wp_enqueue_style( 'boighor_pluginse', get_template_directory_uri() . '/css/plugins.css');
-	wp_enqueue_style( 'boighor_style', get_template_directory_uri() . '/style.css');
-	wp_enqueue_style( 'boighor_custom', get_template_directory_uri() . '/main.css');
-	wp_enqueue_style( 'boighor_fonts.googleapis', get_template_directory_uri() . 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
-	wp_enqueue_style( 'boighor_fonts.googleapis', get_template_directory_uri() . 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
-	wp_enqueue_style( 'boighor_googleapis', get_template_directory_uri() . 'https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,600,600i,700,700i,800');
-	wp_enqueue_style( 'boighor_google_fonts', get_template_directory_uri() . 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
+	
+		add_theme_support( 'post-thumbnails' );
 
+		
+	
+		add_theme_support( 'html5', array(
+			'search-form',
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
+		) );
 
-	wp_enqueue_script( 'boighor_modernizr', get_template_directory_uri() . '/js/vendor/modernizr-3.5.0.min.js', array('jquery'), '', false );
-	wp_enqueue_script( 'boighor_jquery-3.2.1.min', get_template_directory_uri() . '/js/vendor/jquery-3.2.1.min.js', array('jquery'), '', true );
-	wp_enqueue_script( 'boighor_popper', get_template_directory_uri() . '/js/popper.min.js', array('jquery'), '', true );
-	wp_enqueue_script( 'boighor_bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '', true );
-	wp_enqueue_script( 'boighor_plugins', get_template_directory_uri() . '/js/plugins.js', array('jquery'), '', true );
-	wp_enqueue_script( 'boighor_active', get_template_directory_uri() . '/js/active.js', array('jquery'), '', true );
+		add_theme_support( 'custom-background', apply_filters( 'boighor_custom_background_args', array(
+			'default-color' => 'ffffff',
+			'default-image' => '',
+		) ) );
 
-}
-add_action( 'wp_enqueue_scripts', 'boighor_scripts' );
+		add_theme_support( 'customize-selective-refresh-widgets' );
 
+	
+		add_theme_support( 'custom-logo', array(
+			'height'      => 250,
+			'width'       => 250,
+			'flex-width'  => true,
+			'flex-height' => true,
+        ) );
+        
 
-//Nav walker add this section 
-if ( ! file_exists( get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php' ) ) {
-    return new WP_Error( 'class-wp-bootstrap-navwalker-missing', __( 'It appears the class-wp-bootstrap-navwalker.php file may be missing.', 'wp-bootstrap-navwalker' ) );
-} else {
-    require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
-}
+        
+        // All css and js file are here
+        
+        function boighor_scripts() {
+        
+            wp_enqueue_style( 'boighor_bootstrap_min', get_template_directory_uri() . '/css/bootstrap.min.css');
+            wp_enqueue_style( 'boighor_pluginse', get_template_directory_uri() . '/css/plugins.css');
+            wp_enqueue_style( 'boighor_custom', get_template_directory_uri() . '/css/main.css');
+            wp_enqueue_style( 'boighor_custom', get_template_directory_uri() . '/css/custom.css');
+            wp_enqueue_style( 'boighor-style', get_stylesheet_uri() );
+            wp_enqueue_style( 'boighor_fonts.googleapis', 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+            wp_enqueue_style( 'boighor_fonts.googleapis','https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+            wp_enqueue_style( 'boighor_googleapis', 'https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,600,600i,700,700i,800');
+            wp_enqueue_style( 'boighor_google_fonts', 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
+        
+        
+            wp_enqueue_script( 'boighor_modernizr', get_template_directory_uri() . '/js/vendor/modernizr-3.5.0.min.js', array('jquery'), '', false );
+            wp_enqueue_script( 'boighor_jquery-3.2.1.min', get_template_directory_uri() . '/js/vendor/jquery-3.2.1.min.js', array('jquery'), '', true );
+            wp_enqueue_script( 'boighor_popper', get_template_directory_uri() . '/js/popper.min.js', array('jquery'), '', true );
+            wp_enqueue_script( 'boighor_bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '', true );
+            wp_enqueue_script( 'boighor_plugins', get_template_directory_uri() . '/js/plugins.js', array('jquery'), '', true );
+            wp_enqueue_script( 'boighor_active', get_template_directory_uri() . '/js/active.js', array('jquery'), '', true );
+        
+        }
+        add_action( 'wp_enqueue_scripts', 'boighor_scripts' );
+        
 
-
-// Registered menu are here
+        // Registered menu are here
 
 register_nav_menus( array(
     'primary' => __( 'Primary Menu', 'boighor' ),
@@ -58,49 +92,33 @@ register_nav_menus( array(
 ) );
 
 
+	}
+endif;
+add_action( 'after_setup_theme', 'boighor_setup' );
+
+
+function boighor_content_width() {
+
+	$GLOBALS['content_width'] = apply_filters( 'boighor_content_width', 640 );
+}
+add_action( 'after_setup_theme', 'boighor_content_width', 0 );
+
+
+
+//Nav walker add this section 
+if ( ! file_exists( get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php' ) ) {
+    return new WP_Error( 'class-wp-bootstrap-navwalker-missing', __( 'It appears the class-wp-bootstrap-navwalker.php file may be missing.', 'wp-bootstrap-navwalker' ) );
+} else {
+    require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
+}
+
+
+
+
 //Framework include here..
 
 require_once('lib/ReduxCore/framework.php');
-require_once('lib/sample/sample-config.php');
-
-
-
-
-// search components are here
-
-add_theme_support(
-	'html5',
-	array(
-		'search-form',
-		'comment-form',
-		'comment-list',
-		'gallery',
-		'caption',
-		'script',
-		'style',
-	)
-);
-
-
-// Custom post feature products
-
-
-// register_post_type('feature_products', array(
-
-// 	'labels' => array(
-// 	'name' => 'Feature Product',
-// 	'add_new_item'=> 'Add feature products'
-// 	),
-// 	'public' => true,
-// 	'supports' => array('title', 'editor','thumbnail'),
-// 	'menu_position' =>10,
-// 	'rewrite'     => false,
-// 	'menu_icon' => 'dashicons-video-alt3'
-// 	));
-
-
-
-
+require_once('lib/sample/boighor-redux.php');
 
 
 

@@ -284,12 +284,6 @@
         'icon'  => 'el el-home'
     ) );
 
-    Redux::setSection( $opt_name, array(
-        'title'      => __( 'Help Center', 'wpcamel' ),
-        'desc'       => __( 'For any informatio and help purpose 24/7, visit: ', 'wpcamel' ) . '<a href="https://wpcamel.com/" target="_blank">All Rights WPCAMEL</a>',
-        'id'         => 'opt-text-subsection',
-        'subsection' => true,
-    ) );
 
     Redux::setSection( $opt_name, array(
         'title'      => __( 'Main Header', 'wpcamel' ),
@@ -297,6 +291,18 @@
         'id'         => 'header_id',
         'subsection' => true,
         'fields'     => array(  
+            array(
+                'title' =>__('Main logo upload','Wpcamel'),
+                'subtitle' =>__('upload your logo','Wpcamel'),
+                'desc' =>__('logo upload for main menu','Wpcamel'),
+                'type' =>'media',
+                'id' => 'main_logo',
+                'compiler' =>true,
+                'default' => array(
+                'url' => get_template_directory_uri() .'/images/logo/logo.png'
+                )
+            ),
+            
             array(
                 'id'       => 'switcher_currency',
                 'type'     => 'text',
@@ -382,7 +388,7 @@
                 'id' => 'footer_logo',
                 'compiler' =>true,
                 'default' => array(
-                'url' => get_template_directory_uri() .'/img/logo.png'
+                'url' => get_template_directory_uri() .'../images/logo/logo.png'
                 )
             ),
             
